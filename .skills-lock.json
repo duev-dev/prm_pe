@@ -1,0 +1,770 @@
+{
+  "version": 2,
+  "registry": "https://github.com/HoangNguyen0403/agent-skills-standard",
+  "generatedAt": "2026-11-05T02:50:21.643Z",
+  "sources": {
+    "skills/flutter": {
+      "ref": "flutter-v1.8.4",
+      "commit": "c956f64a051162ab8990bc614558c7a914180244"
+    },
+    "skills/dart": {
+      "ref": "dart-v1.3.6",
+      "commit": "9f695e8e2c3e423dfcd420a0e6b80e0e99044088"
+    },
+    "skills/common": {
+      "ref": "common-v2.9.4",
+      "commit": "c956f64a051162ab8990bc614558c7a914180244"
+    },
+    "workflows": {
+      "ref": "workflows-v2.1.1",
+      "commit": "c956f64a051162ab8990bc614558c7a914180244"
+    },
+    "specialists": {
+      "ref": "specialists-v1.5.2",
+      "commit": "c956f64a051162ab8990bc614558c7a914180244"
+    }
+  },
+  "entries": {
+    ".claude/agents/ac-verifier.md": {
+      "owner": "specialist",
+      "source": "specialist:specialist-ac-verifier",
+      "agent": "claude",
+      "sha256": "1ee7af1b0b1cd3998e21ea0ea7fcceaa6c4f061a7d9a7699aea7b9ed21601237"
+    },
+    ".claude/agents/architecture-guard.md": {
+      "owner": "specialist",
+      "source": "specialist:specialist-architecture-guard",
+      "agent": "claude",
+      "sha256": "8673406c357fa6c0bc21e1c7991a3eea4abd139eeee2792cabe06d1fa5e5e3a2"
+    },
+    ".claude/agents/aspm-correlator.md": {
+      "owner": "specialist",
+      "source": "specialist:specialist-aspm-correlator",
+      "agent": "claude",
+      "sha256": "17d51939968dcc78f4d4e7c8666997bf3bec69fe7a0a95aa0ee92452bd6267c2"
+    },
+    ".claude/agents/codebase-scout.md": {
+      "owner": "specialist",
+      "source": "specialist:specialist-codebase-scout",
+      "agent": "claude",
+      "sha256": "3581c99cc0d616f8a9e6f87d7733c647331f7fffd2fce8569dbe7f5a1af170bb"
+    },
+    ".claude/agents/confluence-searcher.md": {
+      "owner": "specialist",
+      "source": "specialist:specialist-confluence-searcher",
+      "agent": "claude",
+      "sha256": "322332057548e29a6702c7ab07dd76f061cd85feeaded4960ae4fd3cf8f992f7"
+    },
+    ".claude/agents/integration-test-generator.md": {
+      "owner": "specialist",
+      "source": "specialist:specialist-integration-test-generator",
+      "agent": "claude",
+      "sha256": "eb2480f2388a5d753814bb4e25980782bc8cf4d5319d712c069728e780d633cd"
+    },
+    ".claude/agents/jira-analyst.md": {
+      "owner": "specialist",
+      "source": "specialist:specialist-jira-analyst",
+      "agent": "claude",
+      "sha256": "244476f0926a33cc886e2031f2de935169559d8884031a1452544f296daf6414"
+    },
+    ".claude/agents/logic-hacker.md": {
+      "owner": "specialist",
+      "source": "specialist:specialist-logic-hacker",
+      "agent": "claude",
+      "sha256": "16d272b97619f5b10dbfcf49500785ab4df0134b915a023c0554546f29ecbbdf"
+    },
+    ".claude/agents/mobile-reverser.md": {
+      "owner": "specialist",
+      "source": "specialist:specialist-mobile-reverser",
+      "agent": "claude",
+      "sha256": "01519868ecfb03cccd1afea5d520ea053253e837c3e1d72e20c4cd8877504f63"
+    },
+    ".claude/agents/pr-commenter-batch.md": {
+      "owner": "specialist",
+      "source": "specialist:specialist-pr-commenter-batch",
+      "agent": "claude",
+      "sha256": "e98776df6dbb16ef4b9ef371afb66556f40863ebed667541e0e369f67e2ad624"
+    },
+    ".claude/agents/pr-reviewer.md": {
+      "owner": "specialist",
+      "source": "specialist:specialist-pr-reviewer",
+      "agent": "claude",
+      "sha256": "5a1c7a7d8062d6d9a3228fce0ee2cb489b31fd605aad0385799a4fa4e987e095"
+    },
+    ".claude/agents/security-reviewer.md": {
+      "owner": "specialist",
+      "source": "specialist:specialist-security-reviewer",
+      "agent": "claude",
+      "sha256": "8e49c4912fc20f80e52f5a061a46b54499caa9822a30c3cc40ecb6ebd7261d60"
+    },
+    ".claude/agents/solution-diagrammer.md": {
+      "owner": "specialist",
+      "source": "specialist:specialist-solution-diagrammer",
+      "agent": "claude",
+      "sha256": "37729c06601f35976281fca62a6d1ed096d5ac28205abcf93ac3c6d4df9beccd"
+    },
+    ".claude/agents/system-architect.md": {
+      "owner": "specialist",
+      "source": "specialist:specialist-system-architect",
+      "agent": "claude",
+      "sha256": "72f34ab623240a2823f4a8e254e922e9669ceee8505e15e87eaed540eced13e5"
+    },
+    ".claude/agents/tc-creator.md": {
+      "owner": "specialist",
+      "source": "specialist:specialist-tc-creator",
+      "agent": "claude",
+      "sha256": "e20bf1e33c9624416dad4ac06612409f55c6c90a749832ddcbe6d1865fc1a8c3"
+    },
+    ".claude/agents/tdd-implementer.md": {
+      "owner": "specialist",
+      "source": "specialist:specialist-tdd-implementer",
+      "agent": "claude",
+      "sha256": "c044dafef6f845eb7d2e2fa1a9a579feabfa03c9968cc070ee2b94b98b7de719"
+    },
+    ".claude/agents/test-gap-finder.md": {
+      "owner": "specialist",
+      "source": "specialist:specialist-test-gap-finder",
+      "agent": "claude",
+      "sha256": "862b924b194fb70c7fc09c8bcc52f5f3059d3a494ff9c68bfd853eeb85ddbe21"
+    },
+    ".claude/agents/test-healer.md": {
+      "owner": "specialist",
+      "source": "specialist:specialist-test-healer",
+      "agent": "claude",
+      "sha256": "90236a4284e1aecd494213619496e496099101ef047edc8761d33d4e87b93034"
+    },
+    ".claude/agents/test-planner.md": {
+      "owner": "specialist",
+      "source": "specialist:specialist-test-planner",
+      "agent": "claude",
+      "sha256": "78c1828260fc3d16b511e05da0c782c54db9904295c232661fdd7752ea5b452c"
+    },
+    ".claude/agents/testid-inserter.md": {
+      "owner": "specialist",
+      "source": "specialist:specialist-testid-inserter",
+      "agent": "claude",
+      "sha256": "51b4ecf4d12e5a19422675b5991b97ce4e59484352a9f3806581599bb71231b9"
+    },
+    ".claude/agents/zephyr-scanner.md": {
+      "owner": "specialist",
+      "source": "specialist:specialist-zephyr-scanner",
+      "agent": "claude",
+      "sha256": "2138ac0943fadb5283cd95914bfadfdc6649b55799c4a30e2d428395cddae83a"
+    },
+    ".claude/skills/common/_INDEX.md": {
+      "owner": "index",
+      "source": "index:common",
+      "agent": "claude",
+      "sha256": "e952fec15e347b42a369e9429920f3c4d2624d5d6553337c038b2b71248fd880"
+    },
+    ".claude/skills/common/common-best-practices/LICENSE": {
+      "owner": "skill",
+      "source": "skill:common/common-best-practices@common-v2.9.4",
+      "agent": "claude",
+      "sha256": "4d7986336b20626e0f4b37bdcd8010f718856bdf0fecb11f40dfdd5f705d49e1"
+    },
+    ".claude/skills/common/common-best-practices/SKILL.md": {
+      "owner": "skill",
+      "source": "skill:common/common-best-practices@common-v2.9.4",
+      "agent": "claude",
+      "sha256": "e714c24b066e11695c48effcebec289fd38a44a508e3e95ef575087c35b6a433"
+    },
+    ".claude/skills/common/common-best-practices/references/CODE_STRUCTURE.md": {
+      "owner": "skill",
+      "source": "skill:common/common-best-practices@common-v2.9.4",
+      "agent": "claude",
+      "sha256": "4515784a77b29297c117840d9bf1234d00a25869d271314aeecef110b312a388"
+    },
+    ".claude/skills/common/common-best-practices/references/EFFECTIVENESS.md": {
+      "owner": "skill",
+      "source": "skill:common/common-best-practices@common-v2.9.4",
+      "agent": "claude",
+      "sha256": "6903d8a86835e23e2806bc1f5a0734d54a1597633bfac7204559462a2c13c543"
+    },
+    ".claude/skills/common/common-debugging/LICENSE": {
+      "owner": "skill",
+      "source": "skill:common/common-debugging@common-v2.9.4",
+      "agent": "claude",
+      "sha256": "4d7986336b20626e0f4b37bdcd8010f718856bdf0fecb11f40dfdd5f705d49e1"
+    },
+    ".claude/skills/common/common-debugging/SKILL.md": {
+      "owner": "skill",
+      "source": "skill:common/common-debugging@common-v2.9.4",
+      "agent": "claude",
+      "sha256": "9701906d15c35214c359feed4cdb80a16cbda7c1160ad5fe209c808a24517cec"
+    },
+    ".claude/skills/common/common-debugging/references/bug-report-template.md": {
+      "owner": "skill",
+      "source": "skill:common/common-debugging@common-v2.9.4",
+      "agent": "claude",
+      "sha256": "36946e6afaf9ebaa3a417c6558bebd9dda66b18872291592aeb774c41d58d28d"
+    },
+    ".claude/skills/common/common-mobile-ux-core/LICENSE": {
+      "owner": "skill",
+      "source": "skill:common/common-mobile-ux-core@common-v2.9.4",
+      "agent": "claude",
+      "sha256": "4d7986336b20626e0f4b37bdcd8010f718856bdf0fecb11f40dfdd5f705d49e1"
+    },
+    ".claude/skills/common/common-mobile-ux-core/SKILL.md": {
+      "owner": "skill",
+      "source": "skill:common/common-mobile-ux-core@common-v2.9.4",
+      "agent": "claude",
+      "sha256": "94b2f5a41757e53b14b5bccab0e353a6bfd5c9b717a7ce80620685dbf73853a9"
+    },
+    ".claude/skills/dart/_INDEX.md": {
+      "owner": "index",
+      "source": "index:dart",
+      "agent": "claude",
+      "sha256": "db61185535eb80d1a6a5d53463b8dacd9e02d3880ced307900a2beed20ccabff"
+    },
+    ".claude/skills/dart/dart-best-practices/LICENSE": {
+      "owner": "skill",
+      "source": "skill:dart/dart-best-practices@dart-v1.3.6",
+      "agent": "claude",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    ".claude/skills/dart/dart-best-practices/SKILL.md": {
+      "owner": "skill",
+      "source": "skill:dart/dart-best-practices@dart-v1.3.6",
+      "agent": "claude",
+      "sha256": "0fa978e8e0157a68abd1f462c94d4a27e6c3f1b8615aac2fe5e9a2f48cc4f69b"
+    },
+    ".claude/skills/dart/dart-language/LICENSE": {
+      "owner": "skill",
+      "source": "skill:dart/dart-language@dart-v1.3.6",
+      "agent": "claude",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    ".claude/skills/dart/dart-language/SKILL.md": {
+      "owner": "skill",
+      "source": "skill:dart/dart-language@dart-v1.3.6",
+      "agent": "claude",
+      "sha256": "d794bc9ac9503e0cd60922a537f03c1d4ac5a563b184c84e61073929c2bce826"
+    },
+    ".claude/skills/dart/dart-tooling/LICENSE": {
+      "owner": "skill",
+      "source": "skill:dart/dart-tooling@dart-v1.3.6",
+      "agent": "claude",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    ".claude/skills/dart/dart-tooling/SKILL.md": {
+      "owner": "skill",
+      "source": "skill:dart/dart-tooling@dart-v1.3.6",
+      "agent": "claude",
+      "sha256": "72e569bf3d991bf89bab09101e7350146d022c8c4772011b4140ccdfe725800f"
+    },
+    ".claude/skills/flutter/_INDEX.md": {
+      "owner": "index",
+      "source": "index:flutter",
+      "agent": "claude",
+      "sha256": "d06398a36ec1186b9a2b16339e8c1c3df8ea5c5db7c0489f558759ac14564773"
+    },
+    ".claude/skills/flutter/flutter-go-router-navigation/LICENSE": {
+      "owner": "skill",
+      "source": "skill:flutter/flutter-go-router-navigation@flutter-v1.8.4",
+      "agent": "claude",
+      "sha256": "4d7986336b20626e0f4b37bdcd8010f718856bdf0fecb11f40dfdd5f705d49e1"
+    },
+    ".claude/skills/flutter/flutter-go-router-navigation/SKILL.md": {
+      "owner": "skill",
+      "source": "skill:flutter/flutter-go-router-navigation@flutter-v1.8.4",
+      "agent": "claude",
+      "sha256": "656ecc7eac419710b7c755742f4db4fd6357b97dc3441d28f4b3c347f56c6b4f"
+    },
+    ".claude/skills/flutter/flutter-go-router-navigation/references/typed-routes.md": {
+      "owner": "skill",
+      "source": "skill:flutter/flutter-go-router-navigation@flutter-v1.8.4",
+      "agent": "claude",
+      "sha256": "e77563ed4f1131578747ef61b846c7bbdf398a3d18d2afcedf914b1fd5d780f3"
+    },
+    ".claude/skills/flutter/flutter-idiomatic-flutter/LICENSE": {
+      "owner": "skill",
+      "source": "skill:flutter/flutter-idiomatic-flutter@flutter-v1.8.4",
+      "agent": "claude",
+      "sha256": "4d7986336b20626e0f4b37bdcd8010f718856bdf0fecb11f40dfdd5f705d49e1"
+    },
+    ".claude/skills/flutter/flutter-idiomatic-flutter/SKILL.md": {
+      "owner": "skill",
+      "source": "skill:flutter/flutter-idiomatic-flutter@flutter-v1.8.4",
+      "agent": "claude",
+      "sha256": "a292165fdd649a077ab0569ff5ccf1fc214fddaa1ecab3703592eefc0f145ef2"
+    },
+    ".claude/skills/flutter/flutter-layer-based-clean-architecture/LICENSE": {
+      "owner": "skill",
+      "source": "skill:flutter/flutter-layer-based-clean-architecture@flutter-v1.8.4",
+      "agent": "claude",
+      "sha256": "4d7986336b20626e0f4b37bdcd8010f718856bdf0fecb11f40dfdd5f705d49e1"
+    },
+    ".claude/skills/flutter/flutter-layer-based-clean-architecture/SKILL.md": {
+      "owner": "skill",
+      "source": "skill:flutter/flutter-layer-based-clean-architecture@flutter-v1.8.4",
+      "agent": "claude",
+      "sha256": "36f1aed832b57305adaff8e553bdb6c40ae758d4b166b3d12ad59f8042931557"
+    },
+    ".claude/skills/flutter/flutter-layer-based-clean-architecture/references/REFERENCE.md": {
+      "owner": "skill",
+      "source": "skill:flutter/flutter-layer-based-clean-architecture@flutter-v1.8.4",
+      "agent": "claude",
+      "sha256": "aef63a93f893efeabdb66b074fe9b3cacf1b190471f0d37dc3c693c2d27b5d47"
+    },
+    ".claude/skills/flutter/flutter-layer-based-clean-architecture/references/repository-mapping.md": {
+      "owner": "skill",
+      "source": "skill:flutter/flutter-layer-based-clean-architecture@flutter-v1.8.4",
+      "agent": "claude",
+      "sha256": "86edb96e69eb85746f04746d8d90b97464114948c82d6fc39dcec60268ba3aa1"
+    },
+    ".claude/skills/flutter/flutter-navigation/LICENSE": {
+      "owner": "skill",
+      "source": "skill:flutter/flutter-navigation@flutter-v1.8.4",
+      "agent": "claude",
+      "sha256": "4d7986336b20626e0f4b37bdcd8010f718856bdf0fecb11f40dfdd5f705d49e1"
+    },
+    ".claude/skills/flutter/flutter-navigation/SKILL.md": {
+      "owner": "skill",
+      "source": "skill:flutter/flutter-navigation@flutter-v1.8.4",
+      "agent": "claude",
+      "sha256": "6f583f73339570303c08b5bf1c340c58ed78e387e3ed361c6a504fa577dab8e7"
+    },
+    ".claude/skills/flutter/flutter-navigation/references/implementation.md": {
+      "owner": "skill",
+      "source": "skill:flutter/flutter-navigation@flutter-v1.8.4",
+      "agent": "claude",
+      "sha256": "376b76ec191b6c9d9ed9e8fd2afc16fbd9c0caaf685fb7e2afa453e08e1b6541"
+    },
+    ".claude/skills/flutter/flutter-navigation/references/routing-patterns.md": {
+      "owner": "skill",
+      "source": "skill:flutter/flutter-navigation@flutter-v1.8.4",
+      "agent": "claude",
+      "sha256": "9937f53c3b03a63f3233935728215189a4ba5a35a255c664e181b8334369fa2d"
+    },
+    ".claude/skills/flutter/flutter-riverpod-state-management/LICENSE": {
+      "owner": "skill",
+      "source": "skill:flutter/flutter-riverpod-state-management@flutter-v1.8.4",
+      "agent": "claude",
+      "sha256": "4d7986336b20626e0f4b37bdcd8010f718856bdf0fecb11f40dfdd5f705d49e1"
+    },
+    ".claude/skills/flutter/flutter-riverpod-state-management/SKILL.md": {
+      "owner": "skill",
+      "source": "skill:flutter/flutter-riverpod-state-management@flutter-v1.8.4",
+      "agent": "claude",
+      "sha256": "a4270b9a83a1cf5350f8b83aa8a3d76b796623502966b5ee6431edeeff7102c7"
+    },
+    ".claude/skills/flutter/flutter-riverpod-state-management/references/implementation.md": {
+      "owner": "skill",
+      "source": "skill:flutter/flutter-riverpod-state-management@flutter-v1.8.4",
+      "agent": "claude",
+      "sha256": "86546de20493a65975979783594e11781b5823ab23561fe1b96d6deb108e88bd"
+    },
+    ".claude/skills/flutter/flutter-testing/LICENSE": {
+      "owner": "skill",
+      "source": "skill:flutter/flutter-testing@flutter-v1.8.4",
+      "agent": "claude",
+      "sha256": "4d7986336b20626e0f4b37bdcd8010f718856bdf0fecb11f40dfdd5f705d49e1"
+    },
+    ".claude/skills/flutter/flutter-testing/SKILL.md": {
+      "owner": "skill",
+      "source": "skill:flutter/flutter-testing@flutter-v1.8.4",
+      "agent": "claude",
+      "sha256": "21c1626c0b7747d96300fba461c0b788b295f9258523479179d8f78cbe3b6503"
+    },
+    ".claude/skills/flutter/flutter-testing/references/REFERENCE.md": {
+      "owner": "skill",
+      "source": "skill:flutter/flutter-testing@flutter-v1.8.4",
+      "agent": "claude",
+      "sha256": "d67110eded71e8037b476d0e3b3307878deb2c9db4b1d3433ff2337582626405"
+    },
+    ".claude/skills/flutter/flutter-testing/references/bloc-testing.md": {
+      "owner": "skill",
+      "source": "skill:flutter/flutter-testing@flutter-v1.8.4",
+      "agent": "claude",
+      "sha256": "b3f3f9a1393dbd5797fb8fe98337a82f218d4f36a6fcc26cd3083a62f3e55857"
+    },
+    ".claude/skills/flutter/flutter-testing/references/integration-testing.md": {
+      "owner": "skill",
+      "source": "skill:flutter/flutter-testing@flutter-v1.8.4",
+      "agent": "claude",
+      "sha256": "3f7a8021deaec3e5895971526c47b249bde45f10ddf4d72646d59c7a2b0d89ac"
+    },
+    ".claude/skills/flutter/flutter-testing/references/mocking_standards.md": {
+      "owner": "skill",
+      "source": "skill:flutter/flutter-testing@flutter-v1.8.4",
+      "agent": "claude",
+      "sha256": "d04c3cc66d3787e1c9b280de5c4527827fb166fd1070b70ee060c075cb5c706c"
+    },
+    ".claude/skills/flutter/flutter-testing/references/robot-pattern.md": {
+      "owner": "skill",
+      "source": "skill:flutter/flutter-testing@flutter-v1.8.4",
+      "agent": "claude",
+      "sha256": "6b29dfc1d8a996964efe5593299855f2d68d9458266c5c123fbb07655a4f1a9c"
+    },
+    ".claude/skills/flutter/flutter-testing/references/test-organization.md": {
+      "owner": "skill",
+      "source": "skill:flutter/flutter-testing@flutter-v1.8.4",
+      "agent": "claude",
+      "sha256": "aeca0dc293e11b4f3c43c9d868ae72f56c186f9802414b0fe52a869bf9e77ca1"
+    },
+    ".claude/skills/flutter/flutter-testing/references/unit-testing.md": {
+      "owner": "skill",
+      "source": "skill:flutter/flutter-testing@flutter-v1.8.4",
+      "agent": "claude",
+      "sha256": "eea3b153f75312ae4a0c69463a6cfeb0821fd532705703300ee84f7aef523b49"
+    },
+    ".claude/skills/flutter/flutter-testing/references/widget-keys.md": {
+      "owner": "skill",
+      "source": "skill:flutter/flutter-testing@flutter-v1.8.4",
+      "agent": "claude",
+      "sha256": "6984af3f25affeb8aabe393fe95f92cc268809ab609298217d9380796b02959b"
+    },
+    ".claude/skills/flutter/flutter-testing/references/widget-testing.md": {
+      "owner": "skill",
+      "source": "skill:flutter/flutter-testing@flutter-v1.8.4",
+      "agent": "claude",
+      "sha256": "77c32f7a7da760bee3648776b5d743d7f404bde303ade47548237d41703693f6"
+    },
+    ".claude/skills/flutter/flutter-widgets/LICENSE": {
+      "owner": "skill",
+      "source": "skill:flutter/flutter-widgets@flutter-v1.8.4",
+      "agent": "claude",
+      "sha256": "4d7986336b20626e0f4b37bdcd8010f718856bdf0fecb11f40dfdd5f705d49e1"
+    },
+    ".claude/skills/flutter/flutter-widgets/SKILL.md": {
+      "owner": "skill",
+      "source": "skill:flutter/flutter-widgets@flutter-v1.8.4",
+      "agent": "claude",
+      "sha256": "633a66b3b08dc4f306fca88ddf07c37c4a46c5849c306e50f50bc202e830e79a"
+    }
+  },
+  "attributionCatalog": {
+    "version": 1,
+    "packages": {
+      "common/common-best-practices": {
+        "registry": "https://github.com/HoangNguyen0403/agent-skills-standard",
+        "declaringCategory": "common",
+        "requestedRef": "common-v2.9.4",
+        "resolvedCommit": "c956f64a051162ab8990bc614558c7a914180244",
+        "files": [
+          {
+            "sourcePath": "LICENSE",
+            "sourceKind": "root",
+            "requestedRef": "common-v2.9.4",
+            "resolvedCommit": "c956f64a051162ab8990bc614558c7a914180244",
+            "blobSha1": "1bf0db88ec178a86f6ad6b0bac7aa1dd6e627d05",
+            "sha256": "4d7986336b20626e0f4b37bdcd8010f718856bdf0fecb11f40dfdd5f705d49e1",
+            "basis": "commit-tree-blob",
+            "name": "LICENSE",
+            "destinations": [
+              {
+                "agent": "claude",
+                "path": ".claude/skills/common/common-best-practices/LICENSE",
+                "sha256": "4d7986336b20626e0f4b37bdcd8010f718856bdf0fecb11f40dfdd5f705d49e1"
+              }
+            ]
+          }
+        ]
+      },
+      "common/common-debugging": {
+        "registry": "https://github.com/HoangNguyen0403/agent-skills-standard",
+        "declaringCategory": "common",
+        "requestedRef": "common-v2.9.4",
+        "resolvedCommit": "c956f64a051162ab8990bc614558c7a914180244",
+        "files": [
+          {
+            "sourcePath": "LICENSE",
+            "sourceKind": "root",
+            "requestedRef": "common-v2.9.4",
+            "resolvedCommit": "c956f64a051162ab8990bc614558c7a914180244",
+            "blobSha1": "1bf0db88ec178a86f6ad6b0bac7aa1dd6e627d05",
+            "sha256": "4d7986336b20626e0f4b37bdcd8010f718856bdf0fecb11f40dfdd5f705d49e1",
+            "basis": "commit-tree-blob",
+            "name": "LICENSE",
+            "destinations": [
+              {
+                "agent": "claude",
+                "path": ".claude/skills/common/common-debugging/LICENSE",
+                "sha256": "4d7986336b20626e0f4b37bdcd8010f718856bdf0fecb11f40dfdd5f705d49e1"
+              }
+            ]
+          }
+        ]
+      },
+      "common/common-mobile-ux-core": {
+        "registry": "https://github.com/HoangNguyen0403/agent-skills-standard",
+        "declaringCategory": "common",
+        "requestedRef": "common-v2.9.4",
+        "resolvedCommit": "c956f64a051162ab8990bc614558c7a914180244",
+        "files": [
+          {
+            "sourcePath": "LICENSE",
+            "sourceKind": "root",
+            "requestedRef": "common-v2.9.4",
+            "resolvedCommit": "c956f64a051162ab8990bc614558c7a914180244",
+            "blobSha1": "1bf0db88ec178a86f6ad6b0bac7aa1dd6e627d05",
+            "sha256": "4d7986336b20626e0f4b37bdcd8010f718856bdf0fecb11f40dfdd5f705d49e1",
+            "basis": "commit-tree-blob",
+            "name": "LICENSE",
+            "destinations": [
+              {
+                "agent": "claude",
+                "path": ".claude/skills/common/common-mobile-ux-core/LICENSE",
+                "sha256": "4d7986336b20626e0f4b37bdcd8010f718856bdf0fecb11f40dfdd5f705d49e1"
+              }
+            ]
+          }
+        ]
+      },
+      "dart/dart-best-practices": {
+        "registry": "https://github.com/HoangNguyen0403/agent-skills-standard",
+        "declaringCategory": "dart",
+        "requestedRef": "dart-v1.3.6",
+        "resolvedCommit": "9f695e8e2c3e423dfcd420a0e6b80e0e99044088",
+        "files": [
+          {
+            "sourcePath": "LICENSE",
+            "sourceKind": "root",
+            "requestedRef": "dart-v1.3.6",
+            "resolvedCommit": "9f695e8e2c3e423dfcd420a0e6b80e0e99044088",
+            "blobSha1": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+            "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+            "basis": "commit-tree-blob",
+            "name": "LICENSE",
+            "destinations": [
+              {
+                "agent": "claude",
+                "path": ".claude/skills/dart/dart-best-practices/LICENSE",
+                "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+              }
+            ]
+          }
+        ]
+      },
+      "dart/dart-language": {
+        "registry": "https://github.com/HoangNguyen0403/agent-skills-standard",
+        "declaringCategory": "dart",
+        "requestedRef": "dart-v1.3.6",
+        "resolvedCommit": "9f695e8e2c3e423dfcd420a0e6b80e0e99044088",
+        "files": [
+          {
+            "sourcePath": "LICENSE",
+            "sourceKind": "root",
+            "requestedRef": "dart-v1.3.6",
+            "resolvedCommit": "9f695e8e2c3e423dfcd420a0e6b80e0e99044088",
+            "blobSha1": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+            "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+            "basis": "commit-tree-blob",
+            "name": "LICENSE",
+            "destinations": [
+              {
+                "agent": "claude",
+                "path": ".claude/skills/dart/dart-language/LICENSE",
+                "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+              }
+            ]
+          }
+        ]
+      },
+      "dart/dart-tooling": {
+        "registry": "https://github.com/HoangNguyen0403/agent-skills-standard",
+        "declaringCategory": "dart",
+        "requestedRef": "dart-v1.3.6",
+        "resolvedCommit": "9f695e8e2c3e423dfcd420a0e6b80e0e99044088",
+        "files": [
+          {
+            "sourcePath": "LICENSE",
+            "sourceKind": "root",
+            "requestedRef": "dart-v1.3.6",
+            "resolvedCommit": "9f695e8e2c3e423dfcd420a0e6b80e0e99044088",
+            "blobSha1": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+            "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+            "basis": "commit-tree-blob",
+            "name": "LICENSE",
+            "destinations": [
+              {
+                "agent": "claude",
+                "path": ".claude/skills/dart/dart-tooling/LICENSE",
+                "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+              }
+            ]
+          }
+        ]
+      },
+      "flutter/flutter-go-router-navigation": {
+        "registry": "https://github.com/HoangNguyen0403/agent-skills-standard",
+        "declaringCategory": "flutter",
+        "requestedRef": "flutter-v1.8.4",
+        "resolvedCommit": "c956f64a051162ab8990bc614558c7a914180244",
+        "files": [
+          {
+            "sourcePath": "LICENSE",
+            "sourceKind": "root",
+            "requestedRef": "flutter-v1.8.4",
+            "resolvedCommit": "c956f64a051162ab8990bc614558c7a914180244",
+            "blobSha1": "1bf0db88ec178a86f6ad6b0bac7aa1dd6e627d05",
+            "sha256": "4d7986336b20626e0f4b37bdcd8010f718856bdf0fecb11f40dfdd5f705d49e1",
+            "basis": "commit-tree-blob",
+            "name": "LICENSE",
+            "destinations": [
+              {
+                "agent": "claude",
+                "path": ".claude/skills/flutter/flutter-go-router-navigation/LICENSE",
+                "sha256": "4d7986336b20626e0f4b37bdcd8010f718856bdf0fecb11f40dfdd5f705d49e1"
+              }
+            ]
+          }
+        ]
+      },
+      "flutter/flutter-idiomatic-flutter": {
+        "registry": "https://github.com/HoangNguyen0403/agent-skills-standard",
+        "declaringCategory": "flutter",
+        "requestedRef": "flutter-v1.8.4",
+        "resolvedCommit": "c956f64a051162ab8990bc614558c7a914180244",
+        "files": [
+          {
+            "sourcePath": "LICENSE",
+            "sourceKind": "root",
+            "requestedRef": "flutter-v1.8.4",
+            "resolvedCommit": "c956f64a051162ab8990bc614558c7a914180244",
+            "blobSha1": "1bf0db88ec178a86f6ad6b0bac7aa1dd6e627d05",
+            "sha256": "4d7986336b20626e0f4b37bdcd8010f718856bdf0fecb11f40dfdd5f705d49e1",
+            "basis": "commit-tree-blob",
+            "name": "LICENSE",
+            "destinations": [
+              {
+                "agent": "claude",
+                "path": ".claude/skills/flutter/flutter-idiomatic-flutter/LICENSE",
+                "sha256": "4d7986336b20626e0f4b37bdcd8010f718856bdf0fecb11f40dfdd5f705d49e1"
+              }
+            ]
+          }
+        ]
+      },
+      "flutter/flutter-layer-based-clean-architecture": {
+        "registry": "https://github.com/HoangNguyen0403/agent-skills-standard",
+        "declaringCategory": "flutter",
+        "requestedRef": "flutter-v1.8.4",
+        "resolvedCommit": "c956f64a051162ab8990bc614558c7a914180244",
+        "files": [
+          {
+            "sourcePath": "LICENSE",
+            "sourceKind": "root",
+            "requestedRef": "flutter-v1.8.4",
+            "resolvedCommit": "c956f64a051162ab8990bc614558c7a914180244",
+            "blobSha1": "1bf0db88ec178a86f6ad6b0bac7aa1dd6e627d05",
+            "sha256": "4d7986336b20626e0f4b37bdcd8010f718856bdf0fecb11f40dfdd5f705d49e1",
+            "basis": "commit-tree-blob",
+            "name": "LICENSE",
+            "destinations": [
+              {
+                "agent": "claude",
+                "path": ".claude/skills/flutter/flutter-layer-based-clean-architecture/LICENSE",
+                "sha256": "4d7986336b20626e0f4b37bdcd8010f718856bdf0fecb11f40dfdd5f705d49e1"
+              }
+            ]
+          }
+        ]
+      },
+      "flutter/flutter-navigation": {
+        "registry": "https://github.com/HoangNguyen0403/agent-skills-standard",
+        "declaringCategory": "flutter",
+        "requestedRef": "flutter-v1.8.4",
+        "resolvedCommit": "c956f64a051162ab8990bc614558c7a914180244",
+        "files": [
+          {
+            "sourcePath": "LICENSE",
+            "sourceKind": "root",
+            "requestedRef": "flutter-v1.8.4",
+            "resolvedCommit": "c956f64a051162ab8990bc614558c7a914180244",
+            "blobSha1": "1bf0db88ec178a86f6ad6b0bac7aa1dd6e627d05",
+            "sha256": "4d7986336b20626e0f4b37bdcd8010f718856bdf0fecb11f40dfdd5f705d49e1",
+            "basis": "commit-tree-blob",
+            "name": "LICENSE",
+            "destinations": [
+              {
+                "agent": "claude",
+                "path": ".claude/skills/flutter/flutter-navigation/LICENSE",
+                "sha256": "4d7986336b20626e0f4b37bdcd8010f718856bdf0fecb11f40dfdd5f705d49e1"
+              }
+            ]
+          }
+        ]
+      },
+      "flutter/flutter-riverpod-state-management": {
+        "registry": "https://github.com/HoangNguyen0403/agent-skills-standard",
+        "declaringCategory": "flutter",
+        "requestedRef": "flutter-v1.8.4",
+        "resolvedCommit": "c956f64a051162ab8990bc614558c7a914180244",
+        "files": [
+          {
+            "sourcePath": "LICENSE",
+            "sourceKind": "root",
+            "requestedRef": "flutter-v1.8.4",
+            "resolvedCommit": "c956f64a051162ab8990bc614558c7a914180244",
+            "blobSha1": "1bf0db88ec178a86f6ad6b0bac7aa1dd6e627d05",
+            "sha256": "4d7986336b20626e0f4b37bdcd8010f718856bdf0fecb11f40dfdd5f705d49e1",
+            "basis": "commit-tree-blob",
+            "name": "LICENSE",
+            "destinations": [
+              {
+                "agent": "claude",
+                "path": ".claude/skills/flutter/flutter-riverpod-state-management/LICENSE",
+                "sha256": "4d7986336b20626e0f4b37bdcd8010f718856bdf0fecb11f40dfdd5f705d49e1"
+              }
+            ]
+          }
+        ]
+      },
+      "flutter/flutter-testing": {
+        "registry": "https://github.com/HoangNguyen0403/agent-skills-standard",
+        "declaringCategory": "flutter",
+        "requestedRef": "flutter-v1.8.4",
+        "resolvedCommit": "c956f64a051162ab8990bc614558c7a914180244",
+        "files": [
+          {
+            "sourcePath": "LICENSE",
+            "sourceKind": "root",
+            "requestedRef": "flutter-v1.8.4",
+            "resolvedCommit": "c956f64a051162ab8990bc614558c7a914180244",
+            "blobSha1": "1bf0db88ec178a86f6ad6b0bac7aa1dd6e627d05",
+            "sha256": "4d7986336b20626e0f4b37bdcd8010f718856bdf0fecb11f40dfdd5f705d49e1",
+            "basis": "commit-tree-blob",
+            "name": "LICENSE",
+            "destinations": [
+              {
+                "agent": "claude",
+                "path": ".claude/skills/flutter/flutter-testing/LICENSE",
+                "sha256": "4d7986336b20626e0f4b37bdcd8010f718856bdf0fecb11f40dfdd5f705d49e1"
+              }
+            ]
+          }
+        ]
+      },
+      "flutter/flutter-widgets": {
+        "registry": "https://github.com/HoangNguyen0403/agent-skills-standard",
+        "declaringCategory": "flutter",
+        "requestedRef": "flutter-v1.8.4",
+        "resolvedCommit": "c956f64a051162ab8990bc614558c7a914180244",
+        "files": [
+          {
+            "sourcePath": "LICENSE",
+            "sourceKind": "root",
+            "requestedRef": "flutter-v1.8.4",
+            "resolvedCommit": "c956f64a051162ab8990bc614558c7a914180244",
+            "blobSha1": "1bf0db88ec178a86f6ad6b0bac7aa1dd6e627d05",
+            "sha256": "4d7986336b20626e0f4b37bdcd8010f718856bdf0fecb11f40dfdd5f705d49e1",
+            "basis": "commit-tree-blob",
+            "name": "LICENSE",
+            "destinations": [
+              {
+                "agent": "claude",
+                "path": ".claude/skills/flutter/flutter-widgets/LICENSE",
+                "sha256": "4d7986336b20626e0f4b37bdcd8010f718856bdf0fecb11f40dfdd5f705d49e1"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "disclosed": {
+    "claude": []
+  }
+}

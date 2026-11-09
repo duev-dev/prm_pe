@@ -1,0 +1,38 @@
+registry: https://github.com/HoangNguyen0403/agent-skills-standard
+agents:
+  - claude
+skills:
+  flutter:
+    ref: flutter-v1.8.4
+    exclude:
+      - flutter-bloc-state-management
+      - flutter-auto-route-navigation
+      - flutter-getx-navigation
+      - flutter-getx-state-management
+      - flutter-localization
+      - flutter-retrofit-networking
+      - flutter-dependency-injection
+      - flutter-cicd
+      - flutter-notifications
+      - flutter-concurrency
+      - flutter-performance
+      - flutter-error-handling
+      - flutter-feature-based-clean-architecture
+      - flutter-design-system
+      - flutter-security
+  dart:
+    ref: dart-v1.3.6
+  common:
+    ref: common-v2.9.4
+    include:
+      - common-best-practices
+      - common-mobile-ux-core
+      - common-debugging
+custom_overrides: []
+workflows: false
+mcp:
+  enabled: true
+  scope: project
+  prompted: true
+workflows_ref: workflows-v2.1.1
+specialists_ref: specialists-v1.5.2
