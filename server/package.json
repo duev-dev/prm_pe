@@ -1,0 +1,10 @@
+{
+  "name": "prm-shop-payos",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=22.12" },
+  "scripts": {
+    "start": "node --env-file-if-exists=.env index.js",
+    "test": "node --test"
+  }
+}

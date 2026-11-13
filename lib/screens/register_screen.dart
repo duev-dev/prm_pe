@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../data/app_database.dart';
+import '../ui.dart';
 import 'validators.dart';
 
 class RegisterScreen extends StatefulWidget {
@@ -50,47 +51,44 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Đăng ký')),
-      body: Form(
-        key: _form,
-        child: ListView(
-          padding: const EdgeInsets.all(24),
-          children: [
-            TextFormField(
-              controller: _name,
-              decoration: const InputDecoration(labelText: 'Họ và tên', prefixIcon: Icon(Icons.person)),
-              validator: (v) => notEmpty(v, 'Họ và tên'),
-            ),
-            const SizedBox(height: 16),
-            TextFormField(
-              controller: _email,
-              keyboardType: TextInputType.emailAddress,
-              decoration: const InputDecoration(labelText: 'Email', prefixIcon: Icon(Icons.email)),
-              validator: validateEmail,
-            ),
-            const SizedBox(height: 16),
-            TextFormField(
-              controller: _password,
-              obscureText: true,
-              decoration: const InputDecoration(labelText: 'Mật khẩu', prefixIcon: Icon(Icons.lock)),
-              validator: validatePassword,
-            ),
-            const SizedBox(height: 16),
-            TextFormField(
-              controller: _confirm,
-              obscureText: true,
-              decoration: const InputDecoration(labelText: 'Xác nhận mật khẩu', prefixIcon: Icon(Icons.lock_outline)),
-              validator: (v) => v != _password.text ? 'Mật khẩu xác nhận không khớp' : null,
-            ),
-            const SizedBox(height: 24),
-            FilledButton(
-              onPressed: _busy ? null : _submit,
-              child: _busy ? const CircularProgressIndicator() : const Text('Đăng ký'),
-            ),
-            TextButton(onPressed: () => context.go('/login'), child: const Text('Đã có tài khoản? Đăng nhập')),
-          ],
-        ),
+    return Form(
+      key: _form,
+      child: AuthShell(
+        icon: Icons.person_add_alt_1_rounded,
+        title: 'Tạo tài khoản',
+        subtitle: 'Chỉ mất vài giây ✨',
+        children: [
+          TextFormField(
+            controller: _name,
+            decoration: const InputDecoration(labelText: 'Họ và tên', prefixIcon: Icon(Icons.person_outline)),
+            validator: (v) => notEmpty(v, 'Họ và tên'),
+          ),
+          const SizedBox(height: 16),
+          TextFormField(
+            controller: _email,
+            keyboardType: TextInputType.emailAddress,
+            decoration: const InputDecoration(labelText: 'Email', prefixIcon: Icon(Icons.email_outlined)),
+            validator: validateEmail,
+          ),
+          const SizedBox(height: 16),
+          TextFormField(
+            controller: _password,
+            obscureText: true,
+            decoration: const InputDecoration(labelText: 'Mật khẩu', prefixIcon: Icon(Icons.lock_outline)),
+            validator: validatePassword,
+          ),
+          const SizedBox(height: 16),
+          TextFormField(
+            controller: _confirm,
+            obscureText: true,
+            decoration: const InputDecoration(labelText: 'Xác nhận mật khẩu', prefixIcon: Icon(Icons.lock_reset)),
+            validator: (v) => v != _password.text ? 'Mật khẩu xác nhận không khớp' : null,
+          ),
+          const SizedBox(height: 24),
+          GradientButton(onPressed: _submit, busy: _busy, label: 'Đăng ký', icon: Icons.check_rounded),
+          const SizedBox(height: 8),
+          TextButton(onPressed: () => context.go('/login'), child: const Text('Đã có tài khoản? Đăng nhập')),
+        ],
       ),
     );
   }

@@ -5,6 +5,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'data/app_database.dart';
 import 'providers/providers.dart';
 import 'router.dart';
+import 'ui.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -22,11 +23,7 @@ class ShopApp extends ConsumerWidget {
     return MaterialApp.router(
       title: 'PRM Shop',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorSchemeSeed: Colors.indigo,
-        useMaterial3: true,
-        inputDecorationTheme: const InputDecorationTheme(border: OutlineInputBorder()),
-      ),
+      theme: buildTheme(),
       routerConfig: ref.watch(routerProvider),
     );
   }

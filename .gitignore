@@ -50,3 +50,7 @@ app.*.map.json
 # Local only
 PE_PRM393.pdf
 .skillsrc.bak
+
+# PayOS keys
+server/.env
+server/node_modules/

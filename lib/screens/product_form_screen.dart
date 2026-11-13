@@ -1,9 +1,15 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:path/path.dart' as p;
+import 'package:sqflite/sqflite.dart';
 
 import '../models/models.dart';
 import '../providers/providers.dart';
+import '../ui.dart';
 import 'product_list_screen.dart';
 import 'validators.dart';
 
@@ -23,7 +29,7 @@ class _ProductFormScreenState extends ConsumerState<ProductFormScreen> {
       : ref.read(productsProvider).value?.where((p) => p.id == widget.productId).firstOrNull;
   late final _name = TextEditingController(text: _existing?.name);
   late final _desc = TextEditingController(text: _existing?.description);
-  late final _price = TextEditingController(text: _existing?.price.toString());
+  late final _price = TextEditingController(text: _existing?.price.round().toString());
   late final _image = TextEditingController(text: _existing?.imageUrl);
   bool _busy = false;
 
@@ -35,6 +41,21 @@ class _ProductFormScreenState extends ConsumerState<ProductFormScreen> {
       c.dispose();
     }
     super.dispose();
+  }
+
+  Future<void> _pickImage() async {
+    try {
+      final x = await ImagePicker().pickImage(source: ImageSource.gallery, maxWidth: 1200, imageQuality: 85);
+      if (x == null) return;
+      // Copy out of the picker's temp cache (which the OS may clear) into app storage next to the DB.
+      final dir = Directory(p.join(await getDatabasesPath(), 'product_images'));
+      await dir.create(recursive: true);
+      final saved = await File(x.path)
+          .copy(p.join(dir.path, '${DateTime.now().millisecondsSinceEpoch}${p.extension(x.path)}'));
+      if (mounted) setState(() => _image.text = saved.path);
+    } catch (e) {
+      if (mounted) ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Không chọn được ảnh: $e')));
+    }
   }
 
   Future<void> _save() async {
@@ -71,43 +92,76 @@ class _ProductFormScreenState extends ConsumerState<ProductFormScreen> {
         child: ListView(
           padding: const EdgeInsets.all(16),
           children: [
+            Center(
+              child: InkWell(
+                borderRadius: BorderRadius.circular(24),
+                onTap: _pickImage,
+                child: AnimatedSwitcher(
+                  duration: const Duration(milliseconds: 300),
+                  child: ClipRRect(
+                    key: ValueKey(_image.text.trim()),
+                    borderRadius: BorderRadius.circular(24),
+                    child: ProductImage(_image.text.trim(), size: 180),
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(height: 12),
+            Center(
+              child: Wrap(
+                spacing: 8,
+                children: [
+                  FilledButton.tonalIcon(
+                    onPressed: _pickImage,
+                    icon: const Icon(Icons.photo_library_outlined),
+                    label: const Text('Chọn ảnh từ thư viện'),
+                  ),
+                  if (_image.text.trim().isNotEmpty)
+                    TextButton.icon(
+                      onPressed: () => setState(_image.clear),
+                      icon: const Icon(Icons.close),
+                      label: const Text('Bỏ ảnh'),
+                    ),
+                ],
+              ),
+            ),
+            const SizedBox(height: 24),
             TextFormField(
               controller: _name,
-              decoration: const InputDecoration(labelText: 'Tên sản phẩm'),
+              decoration: const InputDecoration(labelText: 'Tên sản phẩm', prefixIcon: Icon(Icons.label_outline)),
               validator: (v) => notEmpty(v, 'Tên'),
             ),
             const SizedBox(height: 16),
             TextFormField(
               controller: _desc,
               maxLines: 3,
-              decoration: const InputDecoration(labelText: 'Mô tả'),
+              decoration: const InputDecoration(labelText: 'Mô tả', alignLabelWithHint: true),
               validator: (v) => notEmpty(v, 'Mô tả'),
             ),
             const SizedBox(height: 16),
             TextFormField(
               controller: _price,
-              keyboardType: const TextInputType.numberWithOptions(decimal: true),
-              decoration: const InputDecoration(labelText: 'Giá', prefixText: '\$ '),
+              keyboardType: TextInputType.number,
+              decoration: const InputDecoration(
+                labelText: 'Giá (VNĐ)',
+                prefixIcon: Icon(Icons.payments_outlined),
+                suffixText: '₫',
+              ),
               validator: validatePrice,
             ),
             const SizedBox(height: 16),
             TextFormField(
               controller: _image,
               keyboardType: TextInputType.url,
-              decoration: const InputDecoration(labelText: 'URL hình ảnh (tuỳ chọn)'),
+              decoration: const InputDecoration(labelText: 'Hoặc dán URL ảnh (tuỳ chọn)', prefixIcon: Icon(Icons.link)),
               onChanged: (_) => setState(() {}),
             ),
-            const SizedBox(height: 16),
-            Center(
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(12),
-                child: ProductImage(_image.text.trim(), size: 160),
-              ),
-            ),
-            const SizedBox(height: 24),
-            FilledButton(
-              onPressed: _busy ? null : _save,
-              child: _busy ? const CircularProgressIndicator() : Text(_isEdit ? 'Lưu thay đổi' : 'Thêm'),
+            const SizedBox(height: 28),
+            GradientButton(
+              onPressed: _save,
+              busy: _busy,
+              icon: _isEdit ? Icons.save_outlined : Icons.add_rounded,
+              label: _isEdit ? 'Lưu thay đổi' : 'Thêm sản phẩm',
             ),
           ],
         ),

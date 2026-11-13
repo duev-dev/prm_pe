@@ -86,9 +86,10 @@ class CartNotifier extends Notifier<List<CartItem>> {
 
   void clear() => state = const [];
 
-  Future<void> checkout() async {
+  /// [total] = amount actually paid (from PayOS); defaults to the cart total.
+  Future<void> checkout({double? total}) async {
     if (state.isEmpty) return;
-    await AppDatabase.instance.insertOrder(total);
+    await AppDatabase.instance.insertOrder(total ?? this.total);
     clear();
     ref.invalidate(ordersProvider);
   }

@@ -45,6 +45,12 @@ void main() {
     expect(ordersInPeriod(orders, RevenuePeriod.all, now).length, 4);
   });
 
+  test('money formats VND with dot separators', () {
+    expect(money(1250000), '1.250.000 ₫');
+    expect(money(999), '999 ₫');
+    expect(money(1000.4), '1.000 ₫');
+  });
+
   test('validators', () {
     expect(validateEmail('a@b.com'), isNull);
     expect(validateEmail('a@b'), isNotNull);

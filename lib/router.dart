@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'providers/providers.dart';
 import 'screens/cart_screen.dart';
 import 'screens/login_screen.dart';
+import 'screens/payment_screen.dart';
 import 'screens/product_detail_screen.dart';
 import 'screens/product_form_screen.dart';
 import 'screens/product_list_screen.dart';
@@ -47,6 +48,7 @@ final routerProvider = Provider<GoRouter>((ref) {
         ],
       ),
       GoRoute(path: '/cart', builder: (_, _) => const CartScreen()),
+      GoRoute(path: '/payment', builder: (_, _) => const PaymentScreen()),
       GoRoute(path: '/revenue', builder: (_, _) => const RevenueScreen()),
     ],
   );

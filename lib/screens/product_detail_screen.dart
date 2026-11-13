@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 
 import '../models/models.dart';
 import '../providers/providers.dart';
+import '../ui.dart';
 import 'product_list_screen.dart';
 
 class ProductDetailScreen extends ConsumerWidget {
@@ -14,11 +15,16 @@ class ProductDetailScreen extends ConsumerWidget {
     final ok = await showDialog<bool>(
       context: context,
       builder: (ctx) => AlertDialog(
+        icon: const Icon(Icons.delete_forever_rounded, color: Colors.redAccent, size: 40),
         title: const Text('Xoá sản phẩm?'),
         content: Text('Bạn chắc chắn muốn xoá "${p.name}"?'),
         actions: [
           TextButton(onPressed: () => Navigator.pop(ctx, false), child: const Text('Huỷ')),
-          FilledButton(onPressed: () => Navigator.pop(ctx, true), child: const Text('Xoá')),
+          FilledButton(
+            style: FilledButton.styleFrom(backgroundColor: Colors.redAccent),
+            onPressed: () => Navigator.pop(ctx, true),
+            child: const Text('Xoá'),
+          ),
         ],
       ),
     );
@@ -43,38 +49,73 @@ class ProductDetailScreen extends ConsumerWidget {
       );
     }
 
+    final theme = Theme.of(context);
+    final circle = IconButton.styleFrom(backgroundColor: Colors.white.withValues(alpha: 0.9));
     return Scaffold(
-      appBar: AppBar(
-        title: Text(p.name),
-        actions: [
-          IconButton(
-            tooltip: 'Sửa',
-            icon: const Icon(Icons.edit),
-            onPressed: () => context.push('/products/${p.id}/edit'),
+      body: CustomScrollView(
+        slivers: [
+          SliverAppBar(
+            expandedHeight: 360,
+            pinned: true,
+            stretch: true,
+            backgroundColor: theme.colorScheme.surface,
+            leading: Padding(
+              padding: const EdgeInsets.all(6),
+              child: IconButton(style: circle, icon: const BackButtonIcon(), onPressed: () => context.pop()),
+            ),
+            actions: [
+              IconButton(
+                style: circle,
+                tooltip: 'Sửa',
+                icon: const Icon(Icons.edit_outlined),
+                onPressed: () => context.push('/products/${p.id}/edit'),
+              ),
+              const SizedBox(width: 6),
+              IconButton(
+                style: circle,
+                tooltip: 'Xoá',
+                color: Colors.redAccent,
+                icon: const Icon(Icons.delete_outline),
+                onPressed: () => _delete(context, ref, p),
+              ),
+              const SizedBox(width: 8),
+            ],
+            flexibleSpace: FlexibleSpaceBar(
+              stretchModes: const [StretchMode.zoomBackground],
+              background: Hero(tag: 'product-${p.id}', child: ProductImage(p.imageUrl, size: null)),
+            ),
           ),
-          IconButton(tooltip: 'Xoá', icon: const Icon(Icons.delete), onPressed: () => _delete(context, ref, p)),
-        ],
-      ),
-      body: ListView(
-        children: [
-          AspectRatio(
-            aspectRatio: 4 / 3,
-            child: LayoutBuilder(builder: (_, c) => ProductImage(p.imageUrl, size: c.maxWidth)),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(16),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(p.name, style: Theme.of(context).textTheme.headlineSmall),
-                const SizedBox(height: 8),
-                Text(
-                  money(p.price),
-                  style: Theme.of(context).textTheme.titleLarge?.copyWith(color: Theme.of(context).colorScheme.primary),
+          SliverToBoxAdapter(
+            child: FadeSlideIn(
+              index: 2,
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(20, 24, 20, 24),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(p.name, style: theme.textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.bold)),
+                    const SizedBox(height: 12),
+                    Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 6),
+                      decoration: BoxDecoration(gradient: brandGradient, borderRadius: BorderRadius.circular(30)),
+                      child: Text(
+                        money(p.price),
+                        style: theme.textTheme.titleLarge?.copyWith(color: Colors.white, fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                    const SizedBox(height: 24),
+                    Text('Mô tả', style: theme.textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w700)),
+                    const SizedBox(height: 8),
+                    Text(
+                      p.description,
+                      style: theme.textTheme.bodyLarge?.copyWith(
+                        color: theme.colorScheme.onSurfaceVariant,
+                        height: 1.5,
+                      ),
+                    ),
+                  ],
                 ),
-                const SizedBox(height: 16),
-                Text(p.description),
-              ],
+              ),
             ),
           ),
         ],
@@ -82,12 +123,14 @@ class ProductDetailScreen extends ConsumerWidget {
       bottomNavigationBar: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(16),
-          child: FilledButton.icon(
-            icon: const Icon(Icons.add_shopping_cart),
-            label: const Text('Thêm vào giỏ hàng'),
+          child: GradientButton(
+            icon: Icons.add_shopping_cart,
+            label: 'Thêm vào giỏ hàng',
             onPressed: () {
               ref.read(cartProvider.notifier).add(p);
-              ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Đã thêm "${p.name}" vào giỏ')));
+              ScaffoldMessenger.of(context)
+                ..hideCurrentSnackBar()
+                ..showSnackBar(SnackBar(content: Text('🛒 Đã thêm "${p.name}" vào giỏ')));
             },
           ),
         ),
